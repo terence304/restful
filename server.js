@@ -3,6 +3,25 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
 
+// POST route
+//server.route({
+//    method: 'POST',
+//    path: '/api/v1/create/data',
+//    handler: function(request, reply) {
+//        let body = request.payload;
+//        console.log('body: ', body);
+//        return reply('').code(200);
+//    }
+//});
+//
+//server.start((err) => {
+//
+//    if (err) {
+//        throw err;
+//    }
+//    console.log('Server running at:', server.info.uri);
+//});
+
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
@@ -87,6 +106,10 @@ app.get('/pagecount', function (req, res) {
   } else {
     res.send('{ pageCount: -1 }');
   }
+});
+
+app.get('/hello', function (req, res) {
+    res.send('{testing: hello world}');
 });
 
 // error handling
